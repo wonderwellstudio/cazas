@@ -123,6 +123,7 @@ export function LocationDetailSheet({
               image.src = FALLBACK_LOCATION_IMAGE;
             }}
           />
+          <div className="location-detail-image-separator" aria-hidden="true" />
           <div className="location-detail-ctas">
             <button type="button" className="location-detail-cta location-detail-cta-primary">
               Book a Stay
