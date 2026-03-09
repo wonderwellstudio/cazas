@@ -26,6 +26,20 @@ const SUN_ICON_SRC = '/assets/ui/nav-icons/sun.svg';
 const MOON_ICON_SRC = '/assets/ui/nav-icons/moon.svg';
 const FALLBACK_LOCATION_IMAGE = '/assets/locations/location-fallback.svg';
 
+function getRemainingOwnershipShares(locationId: string): number {
+  let hash = 0;
+
+  for (const character of locationId) {
+    hash = (hash * 31 + character.charCodeAt(0)) >>> 0;
+  }
+
+  return 18 + (hash % 53);
+}
+
+function formatRemainingOwnershipShares(value: number): string {
+  return `${value} ownership ${value === 1 ? 'share' : 'shares'} remaining`;
+}
+
 export function GlobeOverlay({
   regions,
   activeRegion,
@@ -324,7 +338,9 @@ export function GlobeOverlay({
                       </div>
                     </div>
                     <div className="property-card-bottom">
-                      <p className="property-card-description">42 ownership shares remaining</p>
+                      <p className="property-card-description">
+                        {formatRemainingOwnershipShares(getRemainingOwnershipShares(location.id))}
+                      </p>
                       <button
                         type="button"
                         className="property-card-cta"
