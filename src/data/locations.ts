@@ -20,7 +20,7 @@ export interface FlightOrigin {
 export const LOCATIONS: Location[] = [
   {
     id: 'casa-nopal-mx',
-    name: 'Casa Nopal',
+    name: 'Casa Agave',
     location: 'San Miguel de Allende, Mexico',
     description: 'Colonial adobe with modern interior restoration',
     bedrooms: 4,
