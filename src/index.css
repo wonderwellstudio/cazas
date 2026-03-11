@@ -277,6 +277,43 @@ body {
     transform 260ms ease;
 }
 
+.home-tagline {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  z-index: 14;
+  margin: 0;
+  max-width: min(calc(100vw - 3rem), 62rem);
+  color: rgba(255, 255, 255, 0.96);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: clamp(1.1rem, 2.23vw, 2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% + 12px));
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.home-tagline-highlight {
+  color: var(--mint-soft);
+}
+
+.home-tagline-visible {
+  opacity: 1;
+  transform: translate(-50%, -100%);
+}
+
+.home-tagline-hidden {
+  opacity: 0;
+  transform: translate(-50%, calc(-100% + 12px));
+}
+
 .world-title-visible {
   opacity: 1;
   transform: translateY(0);
@@ -660,6 +697,12 @@ body {
     line-height: 0.86;
   }
 
+  .home-tagline {
+    max-width: calc(100vw - 2.5rem);
+    white-space: normal;
+    text-wrap: balance;
+  }
+
   .property-card {
     grid-template-columns: 1fr;
     height: auto;
@@ -697,6 +740,11 @@ body {
     gap: 0.45rem;
     flex-wrap: wrap;
     max-width: calc(100% - 2rem);
+  }
+
+  .home-tagline {
+    top: 46%;
+    font-size: clamp(1rem, 6vw, 1.5rem);
   }
 
   .figma-copy-status {

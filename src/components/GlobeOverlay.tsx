@@ -25,6 +25,7 @@ const ELLIPSIS_ICON_SRC = '/assets/ui/nav-icons/ellipsis.svg';
 const SUN_ICON_SRC = '/assets/ui/nav-icons/sun.svg';
 const MOON_ICON_SRC = '/assets/ui/nav-icons/moon.svg';
 const FALLBACK_LOCATION_IMAGE = '/assets/locations/location-fallback.svg';
+const HOME_TAGLINE_HIGHLIGHT = 'Belong everywhere.';
 
 function getRemainingOwnershipShares(locationId: string): number {
   let hash = 0;
@@ -272,14 +273,26 @@ export function GlobeOverlay({
       ) : null}
 
       {isWorldTitleMounted ? (
-        <p
-          className={`world-title ${
-            isWorldTitleVisible ? 'world-title-visible' : 'world-title-hidden'
-          }`}
-          aria-hidden="true"
-        >
-          Cazas World
-        </p>
+        <>
+          <p
+            className={`home-tagline ${
+              isWorldTitleVisible ? 'home-tagline-visible' : 'home-tagline-hidden'
+            }`}
+            aria-hidden="true"
+          >
+            Explore globally. Invest collectively.{' '}
+            <span className="home-tagline-highlight">{HOME_TAGLINE_HIGHLIGHT}</span>
+          </p>
+
+          <p
+            className={`world-title ${
+              isWorldTitleVisible ? 'world-title-visible' : 'world-title-hidden'
+            }`}
+            aria-hidden="true"
+          >
+            Cazas World
+          </p>
+        </>
       ) : null}
 
       {renderedRegion && isChapterVisible ? (
